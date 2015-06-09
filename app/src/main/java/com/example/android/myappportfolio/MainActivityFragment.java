@@ -80,10 +80,10 @@ public class MainActivityFragment extends Fragment
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l)
             {
-                String forecast = mAppListAdapter.getItem(position);
+                String appname = mAppListAdapter.getItem(position);
 
-                Log.d("**********", view.getParent().toString());
-                Toast.makeText(getActivity(), forecast, Toast.LENGTH_SHORT).show();
+                //Log.d("**********", view.getParent().toString());
+                Toast.makeText(getActivity(), appname, Toast.LENGTH_SHORT).show();
             }
         });
 
