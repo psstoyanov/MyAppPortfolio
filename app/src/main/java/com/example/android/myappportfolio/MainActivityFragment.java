@@ -24,6 +24,14 @@ public class MainActivityFragment extends Fragment
 {
     private ArrayAdapter<String> mAppListAdapter;
 
+    //As suggested by the code reviewer, the toast is modified
+    //to eliminate the delay when tapping on the list in short
+    //amount of time.
+
+    //Declare as class variable
+    private Toast mAppToast;
+
+
     public MainActivityFragment()
     {
     }
@@ -82,8 +90,18 @@ public class MainActivityFragment extends Fragment
             {
                 String appname = mAppListAdapter.getItem(position);
 
+                //Stop any previous toasts
+                if(mAppToast !=null){
+                    mAppToast.cancel();
+                }
+
+                //Make and display new toast
+                mAppToast = Toast.makeText(getActivity(),appname,Toast.LENGTH_SHORT);
+                mAppToast.show();
+
+
                 //Log.d("**********", view.getParent().toString());
-                Toast.makeText(getActivity(), appname, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), appname, Toast.LENGTH_SHORT).show();
             }
         });
 
